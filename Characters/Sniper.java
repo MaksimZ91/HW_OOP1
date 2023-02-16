@@ -1,44 +1,38 @@
 package org.example.Characters;
 
-public class Sniper extends  BaseCharacter{
-    int bullets;
-    int accuracy;
+public class Sniper extends  RangeCharacter{
     int stealth;
 
-    public Sniper(String name, int currentHealh, int maxHealh, int damage, int defence, int speed, int distancy, int bullets, int accuracy, int stealth) {
-        super(name, currentHealh, maxHealh, damage, defence, speed, distancy);
-        this.bullets = bullets;
-        this.accuracy = accuracy;
+
+    public Sniper(String name, int currentHealh, int maxHealh, int damage, int defence, int speed, int distancy, int accuracy, int shots, int maxShots, int stealth) {
+        super(name, currentHealh, maxHealh, damage, defence, speed, distancy, accuracy, shots, maxShots);
         this.stealth = stealth;
     }
 
-    public  void reload(){
-        System.out.println("Перезарядка");
+    public Sniper(String name) {
+        super(name, 100, 120, 60, 32, 40, 5, 10, 15, 15);
+        this.stealth = 5;
     }
+
     public  void cloaking(){
         System.out.println("Маскировка");
     }
-    public void setBullets(int bullets) {
-        this.bullets = bullets;
+
+    @Override
+    public String getInfo() {
+        return "Я снайпер!";
     }
 
-    public void setAccuracy(int accuracy) {
-        this.accuracy = accuracy;
-    }
-
-    public void setStealth(int stealth) {
-        this.stealth = stealth;
-    }
-
-    public int getBullets() {
-        return bullets;
-    }
-
-    public int getAccuracy() {
-        return accuracy;
+    @Override
+    public void step() {
+        super.step();
     }
 
     public int getStealth() {
         return stealth;
+    }
+
+    public void setStealth(int stealth) {
+        this.stealth = stealth;
     }
 }

@@ -1,34 +1,30 @@
 package org.example.Characters;
 
-public class Crossbowman extends BaseCharacter {
-    int bolths;
+public class Crossbowman extends RangeCharacter{
     int energy;
-    int accuracy;
-    public Crossbowman(String name, int currentHealh, int maxHealh, int damage, int defence, int speed, int distancy, int bolths, int energy, int accuracy) {
-        super(name, currentHealh, maxHealh, damage, defence, speed, distancy);
-        this.bolths = bolths;
+
+    public Crossbowman(String name, int currentHealh, int maxHealh, int damage, int defence, int speed, int distancy, int accuracy, int shots, int maxShots, int energy) {
+        super(name, currentHealh, maxHealh, damage, defence, speed, distancy, accuracy, shots, maxShots);
         this.energy = energy;
-        this.accuracy = accuracy;
     }
 
-    public  void reload(){
-        System.out.println("Перезарядка");
+    public Crossbowman(String name) {
+        super(name, 100, 120, 40,32,40,6,15,22,25);
+        this.energy = 10;
+    }
+
+    @Override
+    public String getInfo() {
+        return "Я Арбалетчик!";
+    }
+
+    @Override
+    public void step() {
+        super.step();
     }
 
     public  void collectBolts(){
         System.out.println("Собирать болты");
-    }
-
-    public  void cloaking(){
-        System.out.println("Маскировка");
-    }
-
-    public int getBolths() {
-        return bolths;
-    }
-
-    public void setBolths(int bolths) {
-        this.bolths = bolths;
     }
 
     public int getEnergy() {
@@ -38,12 +34,6 @@ public class Crossbowman extends BaseCharacter {
     public void setEnergy(int energy) {
         this.energy = energy;
     }
-
-    public int getAccuracy() {
-        return accuracy;
-    }
-
-    public void setAccuracy(int accuracy) {
-        this.accuracy = accuracy;
-    }
 }
+
+

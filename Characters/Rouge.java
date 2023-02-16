@@ -1,15 +1,26 @@
 package org.example.Characters;
 
-public class Rouge extends BaseCharacter{
+public class Rouge extends MeleCharacter{
     int luck;
-    int stealth;
-    int agility;
 
-    public Rouge(String name, int currentHealh, int maxHealh, int damage, int defence, int speed, int distancy, int luck, int stealth, int agility) {
-        super(name, currentHealh, maxHealh, damage, defence, speed, distancy);
+    public Rouge(String name, int currentHealh, int maxHealh, int damage, int defence, int speed, int distancy, int stamina, int agility, int luck) {
+        super(name, currentHealh, maxHealh, damage, defence, speed, distancy, stamina, agility);
         this.luck = luck;
-        this.stealth = stealth;
-        this.agility = agility;
+    }
+
+    public Rouge(String name) {
+        super(name, 100, 120, 33, 25, 50, 2, 14, 15);
+        this.luck = 10;
+    }
+
+    @Override
+    public String getInfo() {
+        return "Я разбойник!";
+    }
+
+    @Override
+    public void step() {
+        super.step();
     }
 
     public void steal (){
@@ -28,15 +39,8 @@ public class Rouge extends BaseCharacter{
         this.luck = luck;
     }
 
-    public void setSecrecy(int secrecy) {
-        this.stealth = secrecy;
-    }
-
     public int getLuck() {
         return luck;
     }
 
-    public int getSecrecy() {
-        return stealth;
-    }
 }

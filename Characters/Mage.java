@@ -1,13 +1,29 @@
 package org.example.Characters;
 
-public class Mage extends  BaseCharacter {
+public class Mage extends  MagikCharacter {
     int currentMana;
     int maxMana;
 
-    public Mage(String name, int currentHealh, int maxHealh, int damage, int defence, int speed, int distancy, int currentMana, int maxMana) {
-        super(name, currentHealh, maxHealh, damage, defence, speed, distancy);
+    public Mage(String name, int currentHealh, int maxHealh, int damage, int defence, int speed, int distancy, int mastery, int currentMana, int maxMana) {
+        super(name, currentHealh, maxHealh, damage, defence, speed, distancy, mastery);
         this.currentMana = currentMana;
         this.maxMana = maxMana;
+    }
+
+    public Mage(String name) {
+        super(name, 100, 110, 45, 20, 35, 7, 15);
+        this.currentMana = 50;
+        this.maxMana = 100;
+    }
+
+    @Override
+    public String getInfo() {
+        return "Я маг!";
+    }
+
+    @Override
+    public void step() {
+        super.step();
     }
 
     public void curse (){
@@ -17,19 +33,5 @@ public class Mage extends  BaseCharacter {
         System.out.println("телепор");
     }
 
-    public void setCurrentMana(int currentMana) {
-        this.currentMana = currentMana;
-    }
 
-    public void setMaxMana(int maxMana) {
-        this.maxMana = maxMana;
-    }
-
-    public int getCurrentMana() {
-        return currentMana;
-    }
-
-    public int getMaxMana() {
-        return maxMana;
-    }
 }
