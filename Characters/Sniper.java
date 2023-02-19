@@ -1,16 +1,20 @@
 package org.example.Characters;
 
+import java.util.ArrayList;
+
 public class Sniper extends  RangeCharacter{
     int stealth;
 
 
-    public Sniper(String name, int currentHealh, int maxHealh, int damage, int defence, int speed, int distancy, int accuracy, int shots, int maxShots, int stealth) {
-        super(name, currentHealh, maxHealh, damage, defence, speed, distancy, accuracy, shots, maxShots);
+    public Sniper(String name, int currentHealh, int maxHealh, int minDamage, int maxDamage, int attac, int defence, int speed, int distancy, int accuracy, int shots, int maxShots, int stealth) {
+        super(name, currentHealh, maxHealh, minDamage, maxDamage, attac, defence, speed, distancy, accuracy, shots, maxShots);
         this.stealth = stealth;
     }
 
+
+
     public Sniper(String name) {
-        super(name, 100, 120, 60, 32, 40, 5, 10, 15, 15);
+        super(name, 15, 15, 8, 10, 12, 10, 9, 10, 10,32,32);
         this.stealth = 5;
     }
 
@@ -24,8 +28,8 @@ public class Sniper extends  RangeCharacter{
     }
 
     @Override
-    public void step() {
-        super.step();
+    public void step(ArrayList<BaseCharacter> b1, ArrayList <BaseCharacter> b2) {
+        super.step(b1, b2);
     }
 
     public int getStealth() {

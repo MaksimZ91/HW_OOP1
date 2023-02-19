@@ -1,20 +1,26 @@
 package org.example.Characters;
 
+import java.util.ArrayList;
+
 public abstract class BaseCharacter implements GameInterface {
 
     protected String name;
-    protected int currentHealh, maxHealh, damage, defence, speed, distancy;
+    protected int currentHealh, maxHealh, minDamage, maxDamage, attac, defence, speed, distancy;
     protected Object weapon, invetary, bufs;
 
-
-    public BaseCharacter (int currentHealh, int maxHealh,int damage, int defence, int speed, int distancy){
+    public BaseCharacter(String name, int currentHealh, int maxHealh, int minDamage, int maxDamage, int attac, int defence, int speed, int distancy) {
+        this.name = name;
         this.currentHealh = currentHealh;
         this.maxHealh = maxHealh;
-        this.damage = damage;
+        this.minDamage = minDamage;
+        this.maxDamage = maxDamage;
+        this.attac = attac;
         this.defence = defence;
         this.speed = speed;
         this.distancy = distancy;
     }
+
+
 
     @Override
     public String getInfo() {
@@ -22,7 +28,7 @@ public abstract class BaseCharacter implements GameInterface {
     }
 
     @Override
-    public void step() { }
+    public void step(ArrayList<BaseCharacter> b1, ArrayList <BaseCharacter> b2) { }
 
     public void attack (Object weapon){
         //базовый урон + урон от оружия
@@ -71,12 +77,28 @@ public abstract class BaseCharacter implements GameInterface {
         this.maxHealh = maxHealh;
     }
 
-    public int getDamage() {
-        return damage;
+    public int getMidDamage() {
+        return minDamage;
     }
 
-    public void setDamage(int damage) {
-        this.damage = damage;
+    public void setMidDamage(int minDamage) {
+        this.minDamage = minDamage;
+    }
+
+    public int getMaxDamage() {
+        return maxDamage;
+    }
+
+    public void setMaxDamage(int maxDamage) {
+        this.maxDamage = maxDamage;
+    }
+
+    public int getAttac() {
+        return attac;
+    }
+
+    public void setAttac(int attac) {
+        this.attac = attac;
     }
 
     public int getDefence() {
@@ -103,27 +125,5 @@ public abstract class BaseCharacter implements GameInterface {
         this.distancy = distancy;
     }
 
-    public Object getWeapon() {
-        return weapon;
-    }
 
-    public void setWeapon(Object weapon) {
-        this.weapon = weapon;
-    }
-
-    public Object getInvetary() {
-        return invetary;
-    }
-
-    public void setInvetary(Object invetary) {
-        this.invetary = invetary;
-    }
-
-    public Object getBufs() {
-        return bufs;
-    }
-
-    public void setBufs(Object bufs) {
-        this.bufs = bufs;
-    }
 }

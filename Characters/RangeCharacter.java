@@ -1,11 +1,13 @@
 package org.example.Characters;
 
+import java.util.ArrayList;
+
 public abstract  class RangeCharacter extends BaseCharacter {
 
     int accuracy, shots, maxShots;
-    public RangeCharacter(String name, int currentHealh, int maxHealh, int damage, int defence, int speed, int distancy, int accuracy, int shots, int maxShots) {
-        super(currentHealh, maxHealh, damage, defence, speed, distancy);
-        super.name = name;
+
+    public RangeCharacter(String name, int currentHealh, int maxHealh, int minDamage, int maxDamage, int attac, int defence, int speed, int distancy, int accuracy, int shots, int maxShots) {
+        super(name, currentHealh, maxHealh, minDamage, maxDamage, attac, defence, speed, distancy);
         this.accuracy = accuracy;
         this.shots = shots;
         this.maxShots = maxShots;
@@ -17,8 +19,8 @@ public abstract  class RangeCharacter extends BaseCharacter {
     }
 
     @Override
-    public void step() {
-        super.step();
+    public void step(ArrayList<BaseCharacter> b1, ArrayList <BaseCharacter> b2 ) {
+        super.step(b1, b2);
     }
 
     public  void reload(){

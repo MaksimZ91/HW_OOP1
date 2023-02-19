@@ -1,12 +1,13 @@
 package org.example.Characters;
 
+import java.util.ArrayList;
+
 public abstract class MagikCharacter extends BaseCharacter {
 
     int mastery;
 
-    public MagikCharacter(String name, int currentHealh, int maxHealh, int damage, int defence, int speed, int distancy, int mastery) {
-        super(currentHealh, maxHealh, damage, defence, speed, distancy);
-        super.name = name;
+    public MagikCharacter(String name, int currentHealh, int maxHealh, int minDamage, int maxDamage, int attac, int defence, int speed, int distancy, int mastery) {
+        super(name, currentHealh, maxHealh, minDamage, maxDamage, attac, defence, speed, distancy);
         this.mastery = mastery;
     }
 
@@ -16,8 +17,8 @@ public abstract class MagikCharacter extends BaseCharacter {
     }
 
     @Override
-    public void step() {
-        super.step();
+    public void step(ArrayList<BaseCharacter> b1, ArrayList <BaseCharacter> b2 ) {
+        super.step(b1, b2);
     }
 
     public int getMastery() {

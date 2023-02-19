@@ -1,15 +1,17 @@
 package org.example.Characters;
 
+import java.util.ArrayList;
+
 public class Crossbowman extends RangeCharacter{
     int energy;
 
-    public Crossbowman(String name, int currentHealh, int maxHealh, int damage, int defence, int speed, int distancy, int accuracy, int shots, int maxShots, int energy) {
-        super(name, currentHealh, maxHealh, damage, defence, speed, distancy, accuracy, shots, maxShots);
+    public Crossbowman(String name, int currentHealh, int maxHealh, int minDamage, int maxDamage, int attac, int defence, int speed, int distancy, int accuracy, int shots, int maxShots, int energy) {
+        super(name, currentHealh, maxHealh, minDamage, maxDamage, attac, defence, speed, distancy, accuracy, shots, maxShots);
         this.energy = energy;
     }
 
     public Crossbowman(String name) {
-        super(name, 100, 120, 40,32,40,6,15,22,25);
+        super(name, 10,10,2,3,6,3,4,10,10,16,16);
         this.energy = 10;
     }
 
@@ -19,8 +21,8 @@ public class Crossbowman extends RangeCharacter{
     }
 
     @Override
-    public void step() {
-        super.step();
+    public void step(ArrayList<BaseCharacter> b1, ArrayList <BaseCharacter> b2) {
+        super.step(b1, b2);
     }
 
     public  void collectBolts(){

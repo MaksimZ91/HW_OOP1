@@ -1,17 +1,19 @@
 package org.example.Characters;
 
+import java.util.ArrayList;
+
 public class Fermer extends  MeleCharacter{
 
-    int loyalty;
+    int deliv;
 
-    public Fermer(String name, int currentHealh, int maxHealh, int damage, int defence, int speed, int distancy, int stamina, int agility, int loyalty) {
-        super(name, currentHealh, maxHealh, damage, defence, speed, distancy, stamina, agility);
-        this.loyalty = loyalty;
+    public Fermer(String name, int currentHealh, int maxHealh, int midDamage, int maxDamage, int attac, int defence, int speed, int distancy, int agility, int stamina, int loyalty) {
+        super(name, currentHealh, maxHealh, midDamage, maxDamage, attac, defence, speed, distancy, agility, stamina);
+        this.deliv = loyalty;
     }
 
     public Fermer(String name) {
-        super(name, 80, 100, 12, 20, 40, 1, 12, 10);
-        this.loyalty = 10;
+        super(name, 1,1,1,1,1,1,3,10,10,10);
+        this.deliv = 1;
     }
 
     @Override
@@ -20,8 +22,8 @@ public class Fermer extends  MeleCharacter{
     }
 
     @Override
-    public void step() {
-        super.step();
+    public void step(ArrayList<BaseCharacter> b1, ArrayList <BaseCharacter> b2 ) {
+        super.step(b1, b2);
     }
 
     public void serve(){
@@ -33,11 +35,11 @@ public class Fermer extends  MeleCharacter{
     }
 
     public int getLoyalty() {
-        return loyalty;
+        return deliv;
     }
 
     public void setLoyalty(int loyalty) {
-        this.loyalty = loyalty;
+        this.deliv = loyalty;
     }
 
 }

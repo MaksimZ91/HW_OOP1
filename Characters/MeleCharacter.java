@@ -1,13 +1,14 @@
 package org.example.Characters;
 
+import java.util.ArrayList;
+
 public abstract class MeleCharacter extends BaseCharacter {
     int  agility, stamina;
 
-    public MeleCharacter(String name, int currentHealh, int maxHealh, int damage, int defence, int speed, int distancy ,int stamina, int agility) {
-        super(currentHealh, maxHealh, damage, defence, speed, distancy);
-        super.name = name;
-        this.stamina = stamina;
+    public MeleCharacter(String name, int currentHealh, int maxHealh, int midDamage, int maxDamage, int attac, int defence, int speed, int distancy, int agility, int stamina) {
+        super(name, currentHealh, maxHealh, midDamage, maxDamage, attac, defence, speed, distancy);
         this.agility = agility;
+        this.stamina = stamina;
     }
 
     @Override
@@ -16,7 +17,7 @@ public abstract class MeleCharacter extends BaseCharacter {
     }
 
     @Override
-    public void step() {
-        super.step();
+    public void step(ArrayList<BaseCharacter> b1, ArrayList <BaseCharacter> b2 ) {
+        super.step(b1, b2);
     }
 }

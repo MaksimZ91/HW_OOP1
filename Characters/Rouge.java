@@ -1,15 +1,17 @@
 package org.example.Characters;
 
+import java.util.ArrayList;
+
 public class Rouge extends MeleCharacter{
     int luck;
 
-    public Rouge(String name, int currentHealh, int maxHealh, int damage, int defence, int speed, int distancy, int stamina, int agility, int luck) {
-        super(name, currentHealh, maxHealh, damage, defence, speed, distancy, stamina, agility);
+    public Rouge(String name, int currentHealh, int maxHealh, int midDamage, int maxDamage, int attac, int defence, int speed, int distancy, int agility, int stamina, int luck) {
+        super(name, currentHealh, maxHealh, midDamage, maxDamage, attac, defence, speed, distancy, agility, stamina);
         this.luck = luck;
     }
 
     public Rouge(String name) {
-        super(name, 100, 120, 33, 25, 50, 2, 14, 15);
+        super(name, 10, 10, 2, 4,8, 3, 6, 10, 10,10);
         this.luck = 10;
     }
 
@@ -19,8 +21,8 @@ public class Rouge extends MeleCharacter{
     }
 
     @Override
-    public void step() {
-        super.step();
+    public void step(ArrayList<BaseCharacter> b1, ArrayList <BaseCharacter> b2) {
+        super.step(b1, b2);
     }
 
     public void steal (){

@@ -1,17 +1,19 @@
 package org.example.Characters;
 
+import java.util.ArrayList;
+
 public class SpearMan extends MeleCharacter {
 
     private int strange;
 
 
-    public SpearMan(String name, int currentHealh, int maxHealh, int damage, int defence, int speed, int distancy, int stamina, int agility, int strange) {
-        super(name, currentHealh, maxHealh, damage, defence, speed, distancy, stamina, agility);
+    public SpearMan(String name, int currentHealh, int maxHealh, int midDamage, int maxDamage, int attac, int defence, int speed, int distancy, int agility, int stamina, int strange) {
+        super(name, currentHealh, maxHealh, midDamage, maxDamage, attac, defence, speed, distancy, agility, stamina);
         this.strange = strange;
     }
 
     public SpearMan(String name) {
-        super(name, 120, 150, 52, 60, 30, 2, 15, 2);
+        super(name, 10, 10, 1, 3, 4, 5, 4, 10,10,10);
         this.strange = 10;
     }
 
@@ -21,8 +23,8 @@ public class SpearMan extends MeleCharacter {
     }
 
     @Override
-    public void step() {
-        super.step();
+    public void step(ArrayList<BaseCharacter> b1, ArrayList <BaseCharacter> b2) {
+        super.step(b1, b2);
     }
 
     public void fear() {
