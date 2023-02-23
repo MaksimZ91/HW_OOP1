@@ -6,8 +6,8 @@ public abstract class MagikCharacter extends BaseCharacter {
 
     int mastery;
 
-    public MagikCharacter(String name, int currentHealh, int maxHealh, int minDamage, int maxDamage, int attac, int defence, int speed, int distancy, int mastery) {
-        super(name, currentHealh, maxHealh, minDamage, maxDamage, attac, defence, speed, distancy);
+    public MagikCharacter(String name, int currentHealh, int maxHealh, int minDamage, int maxDamage, int attac, int defence, int speed, int distancy, int mastery, int xCoord, int yCoord) {
+        super(name, currentHealh, maxHealh, minDamage, maxDamage, attac, defence, speed, distancy, xCoord, yCoord);
         this.mastery = mastery;
     }
 

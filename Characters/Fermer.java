@@ -6,13 +6,13 @@ public class Fermer extends  MeleCharacter{
 
     int deliv;
 
-    public Fermer(String name, int currentHealh, int maxHealh, int midDamage, int maxDamage, int attac, int defence, int speed, int distancy, int agility, int stamina, int loyalty) {
-        super(name, currentHealh, maxHealh, midDamage, maxDamage, attac, defence, speed, distancy, agility, stamina);
-        this.deliv = loyalty;
+    public Fermer(String name, int currentHealh, int maxHealh, int midDamage, int maxDamage, int attac, int defence, int speed, int distancy, int agility, int stamina, int xCoord, int yCoord, int deliv) {
+        super(name, currentHealh, maxHealh, midDamage, maxDamage, attac, defence, speed, distancy, agility, stamina, xCoord, yCoord);
+        this.deliv = deliv;
     }
 
-    public Fermer(String name) {
-        super(name, 1,1,1,1,1,1,3,10,10,10);
+    public Fermer(String name, int xCoord, int yCoord) {
+        super(name, 1,1,1,1,1,1,3,10,10,10, xCoord, yCoord) ;
         this.deliv = 1;
     }
 

@@ -1,14 +1,17 @@
 package org.example.Characters;
 
+import org.example.Vector2D;
+
 import java.util.ArrayList;
 
 public abstract class BaseCharacter implements GameInterface {
 
     protected String name;
     protected int currentHealh, maxHealh, minDamage, maxDamage, attac, defence, speed, distancy;
-    protected Object weapon, invetary, bufs;
+    protected Vector2D coords;
 
-    public BaseCharacter(String name, int currentHealh, int maxHealh, int minDamage, int maxDamage, int attac, int defence, int speed, int distancy) {
+
+    public BaseCharacter(String name, int currentHealh, int maxHealh, int minDamage, int maxDamage, int attac, int defence, int speed, int distancy, int xCoord, int yCoord) {
         this.name = name;
         this.currentHealh = currentHealh;
         this.maxHealh = maxHealh;
@@ -18,6 +21,7 @@ public abstract class BaseCharacter implements GameInterface {
         this.defence = defence;
         this.speed = speed;
         this.distancy = distancy;
+        this.coords = new Vector2D(xCoord, yCoord);
     }
 
 
@@ -30,10 +34,25 @@ public abstract class BaseCharacter implements GameInterface {
     @Override
     public void step(ArrayList<BaseCharacter> b1, ArrayList <BaseCharacter> b2) { }
 
-    public void attack (Object weapon){
-        //базовый урон + урон от оружия
-        System.out.printf("Атака %s \n", weapon);
+    public int findeNearest(ArrayList <BaseCharacter> team){
+        double min = 100;
+        int index = 0;
+        for (int i = 0; i < team.size(); i++){
+            if(min > this.coords.distanceCalculation(this.coords, team.get(i).coords)){
+                min = this.coords.distanceCalculation(this.coords, team.get(i).coords);
+                index = i;
+            }
+
+        }
+        return index;
     }
+
+
+
+    public int attack (){
+        return (this.minDamage + this.maxDamage) / 2;
+    }
+
     public void heal (){
         //Лечение
         System.out.printf("Лечение");
@@ -77,11 +96,11 @@ public abstract class BaseCharacter implements GameInterface {
         this.maxHealh = maxHealh;
     }
 
-    public int getMidDamage() {
+    public int getMinDamage() {
         return minDamage;
     }
 
-    public void setMidDamage(int minDamage) {
+    public void setMinDamage(int minDamage) {
         this.minDamage = minDamage;
     }
 
@@ -123,6 +142,21 @@ public abstract class BaseCharacter implements GameInterface {
 
     public void setDistancy(int distancy) {
         this.distancy = distancy;
+    }
+
+    public int getXCoords() {
+        return coords.getxCords();
+    }
+
+    public int getYCoords() {
+        return coords.getyCords();
+    }
+    public void setXCoords(int X) {
+        this.coords.setXcords(X);
+    }
+
+    public void setYCoords(int Y) {
+        this.coords.setyCords(Y);
     }
 
 

@@ -4,6 +4,7 @@ import org.example.Characters.*;
 import javax.sound.midi.Soundbank;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.Random;
 
 
@@ -13,20 +14,20 @@ public class Main {
         ArrayList<BaseCharacter> team1 = new ArrayList<>();
         ArrayList<BaseCharacter> team2 = new ArrayList<>();
 
+
         for (int i = 0; i < 10; i++) {
             ArrayList<String> list = getTeamHero();
-            team1.add(getHero(list.get(0)));
-            team2.add(getHero(list.get(1)));
+            team1.add(getHero(list.get(0),1, i+1));
+            team2.add(getHero(list.get(1), 10, i+1));
         }
         ArrayList<BaseCharacter> heroList = new ArrayList<>(team1);
         heroList.addAll(team2);
 
         System.out.println("Команда 1");
-        team1.forEach( hero -> System.out.printf("Команда 1,Имя: %s,  %s, скорость: %d \n" ,hero.getName(), hero.getInfo(), hero.getSpeed()));
-        System.out.println(team1.size());
+        team1.forEach( hero -> System.out.printf("Команда 1,Имя: %s,  %s, health: %d , координаты X: %d, Y: %d \n" ,hero.getName(), hero.getInfo(), hero.getCurrentHealh(), hero.getXCoords(), hero.getYCoords()));
         System.out.println("Команда 2");
-        team2.forEach( hero -> System.out.printf("Команда 2,Имя: %s,  %s, скорость: %d \n" ,hero.getName(), hero.getInfo(), hero.getSpeed()));
-        System.out.println(team2.size());
+        team2.forEach( hero -> System.out.printf("Команда 2,Имя: %s,  %s, health: %d,  координаты X: %d, Y: %d  \n" ,hero.getName(), hero.getInfo(), hero.getCurrentHealh(), hero.getXCoords(), hero.getYCoords()));
+
 
         heroList.sort(new Comparator<BaseCharacter>() {
             @Override
@@ -38,10 +39,10 @@ public class Main {
         System.out.println("Общий список отсортированный по скорости: ");
         for(BaseCharacter Character : heroList){
             if (team1.contains(Character)){
-                System.out.printf("Команда 1,Имя: %s,  %s, скорость: %d \n" ,Character.getName(), Character.getInfo(), Character.getSpeed());
+                System.out.printf("Команда 1,Имя: %s,  %s, health: %d, x: %d, y: %d \n" ,Character.getName(), Character.getInfo(), Character.getCurrentHealh(), Character.getXCoords(), Character.getYCoords() );
                 Character.step(team1, team2);
             }else{
-                System.out.printf("Команда 2,Имя: %s,  %s, скорость: %d \n" ,Character.getName(), Character.getInfo(), Character.getSpeed());
+                System.out.printf("Команда 2,Имя: %s,  %s, health: %d, x: %d, y: %d \n" ,Character.getName(), Character.getInfo(), Character.getCurrentHealh(), Character.getXCoords(), Character.getYCoords());
                 Character.step(team2, team1);
             }
         }
@@ -62,15 +63,15 @@ public class Main {
         return ls;
     }
 
-    private static BaseCharacter getHero(String hero){    //Итересная реализация switch - case
+    private static BaseCharacter getHero(String hero,int xCoord,int yCoord){
         return switch (hero) {
-            case "SpearMan" -> new SpearMan(getName());
-            case "Rouge" -> new Rouge(getName());
-            case "Mage" -> new Mage(getName());
-            case "Sniper" -> new Sniper(getName());
-            case "Crossbowman" -> new Crossbowman(getName());
-            case "Monk" -> new Monk(getName());
-            default -> new Fermer(getName());
+            case "SpearMan" -> new SpearMan(getName(),xCoord, yCoord);
+            case "Rouge" -> new Rouge(getName(),xCoord, yCoord);
+            case "Mage" -> new Mage(getName(),xCoord, yCoord);
+            case "Sniper" -> new Sniper(getName(),xCoord, yCoord);
+            case "Crossbowman" -> new Crossbowman(getName(),xCoord, yCoord);
+            case "Monk" -> new Monk(getName(),xCoord, yCoord);
+            default -> new Fermer(getName(),xCoord, yCoord);
         };
     }
 

@@ -7,13 +7,13 @@ public class SpearMan extends MeleCharacter {
     private int strange;
 
 
-    public SpearMan(String name, int currentHealh, int maxHealh, int midDamage, int maxDamage, int attac, int defence, int speed, int distancy, int agility, int stamina, int strange) {
-        super(name, currentHealh, maxHealh, midDamage, maxDamage, attac, defence, speed, distancy, agility, stamina);
+    public SpearMan(String name, int currentHealh, int maxHealh, int midDamage, int maxDamage, int attac, int defence, int speed, int distancy, int agility, int stamina, int xCoord, int yCoord, int strange) {
+        super(name, currentHealh, maxHealh, midDamage, maxDamage, attac, defence, speed, distancy, agility, stamina, xCoord, yCoord);
         this.strange = strange;
     }
 
-    public SpearMan(String name) {
-        super(name, 10, 10, 1, 3, 4, 5, 4, 10,10,10);
+    public SpearMan(String name,int xCoord, int yCoord) {
+        super(name, 10, 10, 1, 3, 4, 5, 4, 10,10,10, xCoord, yCoord);
         this.strange = 10;
     }
 

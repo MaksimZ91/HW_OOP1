@@ -5,13 +5,13 @@ import java.util.ArrayList;
 public class Monk extends MagikCharacter{
     int spirit;
 
-    public Monk(String name, int currentHealh, int maxHealh, int minDamage, int maxDamage, int attac, int defence, int speed, int distancy, int mastery, int spirit) {
-        super(name, currentHealh, maxHealh, minDamage, maxDamage, attac, defence, speed, distancy, mastery);
+    public Monk(String name, int currentHealh, int maxHealh, int minDamage, int maxDamage, int attac, int defence, int speed, int distancy, int mastery, int xCoord, int yCoord, int spirit) {
+        super(name, currentHealh, maxHealh, minDamage, maxDamage, attac, defence, speed, distancy, mastery, xCoord, yCoord);
         this.spirit = spirit;
     }
 
-    public Monk(String name) {
-        super(name, 30, 30,   -4, -4, 12, 7, 5, 10, 10);
+    public Monk(String name, int xCoord, int yCoord) {
+        super(name, 30, 30,   -4, -4, 12, 7, 5, 10, 10, xCoord, yCoord);
         this.spirit = 1;
     }
 

@@ -6,14 +6,14 @@ public class Mage extends  MagikCharacter {
     int currentMana;
     int maxMana;
 
-    public Mage(String name, int currentHealh, int maxHealh, int minDamage, int maxDamage, int attac, int defence, int speed, int distancy, int mastery, int currentMana, int maxMana) {
-        super(name, currentHealh, maxHealh, minDamage, maxDamage, attac, defence, speed, distancy, mastery);
+    public Mage(String name, int currentHealh, int maxHealh, int minDamage, int maxDamage, int attac, int defence, int speed, int distancy, int mastery, int xCoord, int yCoord, int currentMana, int maxMana) {
+        super(name, currentHealh, maxHealh, minDamage, maxDamage, attac, defence, speed, distancy, mastery, xCoord, yCoord);
         this.currentMana = currentMana;
         this.maxMana = maxMana;
     }
 
-    public Mage(String name) {
-        super(name, 30, 30, -5, -5, 17, 12, 9,10,10);
+    public Mage(String name, int xCoord, int yCoord) {
+        super(name, 30, 30, -5, -5, 17, 12, 9,10,10,  xCoord,  yCoord);
         this.currentMana = 1;
         this.maxMana = 1;
     }
