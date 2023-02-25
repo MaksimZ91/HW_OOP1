@@ -20,10 +20,11 @@ public abstract  class RangeCharacter extends BaseCharacter {
 
     @Override
     public void step(ArrayList<BaseCharacter> frends, ArrayList <BaseCharacter> teamEnemy ) {
-        if (this.currentHealh <= 0 || this.shots <= 0) return; //3.1
-        BaseCharacter enemy = teamEnemy.get(super.findeNearest(teamEnemy)); //3.2
+        if (state.equals("Die") || this.shots <= 0) return;
+        BaseCharacter enemy = teamEnemy.get(findeNearest(teamEnemy));
         System.out.println("Выстрелов до атаки:  " + this.shots);
-        enemy.setCurrentHealh(enemy.getCurrentHealh() - super.attack()); //3.3
+        float damage = (enemy.defence - attac > 0) ? minDamage: (enemy.defence - attac < 0)? maxDamage : (maxDamage + minDamage)/2;
+        enemy.getDamage(damage);
         System.out.println("--------------------------------------");
         System.out.printf("Атакован ---> Имя: %s, %s, health: %d, скорость: %d, x: %d, y: %d \n" ,
                 enemy.getName(),
@@ -34,9 +35,12 @@ public abstract  class RangeCharacter extends BaseCharacter {
                 enemy.getYCoords());
         System.out.println("--------------------------------------");
         for (BaseCharacter hero: frends) {
-            if(hero instanceof Fermer && hero.getCurrentHealh() > 0) return; //3.4
+            if(hero.getInfo().split(" ")[1].equals("фермер") && hero.state.equals("Stand")){
+                hero.state = "Busy";
+                return;
+            }
         }
-        this.shots = this.shots -1;  //3.5
+        this.shots--;
         System.out.println("Выстрелов после атаки: " + this.shots);
     }
 

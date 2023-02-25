@@ -18,12 +18,13 @@ public class Fermer extends  MeleCharacter{
 
     @Override
     public String getInfo() {
-        return "Я фермер!";
+        return "Я фермер";
     }
 
     @Override
     public void step(ArrayList<BaseCharacter> b1, ArrayList <BaseCharacter> b2 ) {
-        super.step(b1, b2);
+        if (this.state.equals("Die")) return;
+        this.state = "Stand";
     }
 
     public void serve(){

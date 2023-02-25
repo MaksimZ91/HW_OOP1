@@ -10,7 +10,7 @@ public class Vector2D {
     }
 
     public double distanceCalculation(Vector2D start, Vector2D end ){
-        return Math.sqrt(Math.pow(end.getxCords() - start.getxCords(), 2) + Math.pow(end.yCords-start.getyCords(), 2));
+        return Math.sqrt(Math.pow(end.xCords - start.xCords, 2) + Math.pow(end.yCords-start.yCords, 2));
     }
 
     public int getxCords() {

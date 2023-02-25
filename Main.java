@@ -2,10 +2,7 @@ package org.example;
 import org.example.Characters.*;
 
 import javax.sound.midi.Soundbank;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Random;
+import java.util.*;
 
 
 public class Main {
@@ -13,7 +10,7 @@ public class Main {
     public static void main(String[] args) {
         ArrayList<BaseCharacter> team1 = new ArrayList<>();
         ArrayList<BaseCharacter> team2 = new ArrayList<>();
-
+        Scanner user_input = new Scanner(System.in);
 
         for (int i = 0; i < 10; i++) {
             ArrayList<String> list = getTeamHero();
@@ -37,16 +34,18 @@ public class Main {
         });
 
         System.out.println("Общий список отсортированный по скорости: ");
-        for(BaseCharacter Character : heroList){
-            if (team1.contains(Character)){
-                System.out.printf("Команда 1,Имя: %s,  %s, health: %d, x: %d, y: %d \n" ,Character.getName(), Character.getInfo(), Character.getCurrentHealh(), Character.getXCoords(), Character.getYCoords() );
-                Character.step(team1, team2);
-            }else{
-                System.out.printf("Команда 2,Имя: %s,  %s, health: %d, x: %d, y: %d \n" ,Character.getName(), Character.getInfo(), Character.getCurrentHealh(), Character.getXCoords(), Character.getYCoords());
-                Character.step(team2, team1);
+        while (true){
+            user_input.nextLine();
+            for(BaseCharacter Character : heroList){
+                if (team1.contains(Character)){
+                    System.out.printf("Команда 1,Имя: %s,  %s, health: %d, x: %d, y: %d \n" ,Character.getName(), Character.getInfo(), Character.getCurrentHealh(), Character.getXCoords(), Character.getYCoords() );
+                    Character.step(team1, team2);
+                }else{
+                    System.out.printf("Команда 2,Имя: %s,  %s, health: %d, x: %d, y: %d \n" ,Character.getName(), Character.getInfo(), Character.getCurrentHealh(), Character.getXCoords(), Character.getYCoords());
+                    Character.step(team2, team1);
+                }
             }
         }
-
 
     }
 

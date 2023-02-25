@@ -9,6 +9,7 @@ public abstract class BaseCharacter implements GameInterface {
     protected String name;
     protected int currentHealh, maxHealh, minDamage, maxDamage, attac, defence, speed, distancy;
     protected Vector2D coords;
+    protected String state;
 
 
     public BaseCharacter(String name, int currentHealh, int maxHealh, int minDamage, int maxDamage, int attac, int defence, int speed, int distancy, int xCoord, int yCoord) {
@@ -22,6 +23,7 @@ public abstract class BaseCharacter implements GameInterface {
         this.speed = speed;
         this.distancy = distancy;
         this.coords = new Vector2D(xCoord, yCoord);
+        this.state = "Stand";
     }
 
 
@@ -38,24 +40,25 @@ public abstract class BaseCharacter implements GameInterface {
         double min = 100;
         int index = 0;
         for (int i = 0; i < team.size(); i++){
-            if(min > this.coords.distanceCalculation(this.coords, team.get(i).coords)){
+            if(min > this.coords.distanceCalculation(this.coords, team.get(i).coords) & !team.get(i).state.equals("Die")){
                 min = this.coords.distanceCalculation(this.coords, team.get(i).coords);
                 index = i;
             }
-
         }
         return index;
     }
 
 
 
-    public int attack (){
-        return (this.minDamage + this.maxDamage) / 2;
+    public void getDamage (float damage){
+        this.currentHealh -= damage;
+        if (this.currentHealh > this.maxHealh) this.currentHealh = maxHealh;
+        if (this.currentHealh <= 0) this.state = "Die";
     }
 
-    public void heal (){
-        //Лечение
-        System.out.printf("Лечение");
+    public void getHeal (float heal){
+        this.currentHealh -= heal;
+        if (this.currentHealh > this.maxHealh) this.currentHealh = maxHealh;
     }
     public void go (int speed){
         System.out.println("Идем пешком");
