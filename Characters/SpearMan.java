@@ -18,8 +18,12 @@ public class SpearMan extends MeleCharacter {
     }
 
     @Override
-    public String getInfo() {
-        return "Я копейщик!";
+    public StringBuilder getInfo() {
+        StringBuilder builder = new StringBuilder();
+        return builder.append("Копейщик:\t").append(SpearMan.super.name)
+                .append("\t| ATK:\t").append(SpearMan.super.attac)
+                .append("\t| HP:\t").append(SpearMan.super.currentHealh)
+                .append(" \t|\t\t\t|").append("\t| (X.Y) : ").append(SpearMan.super.coords.getxCords()).append(".").append(SpearMan.super.coords.getxCords());
     }
 
     @Override

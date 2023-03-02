@@ -13,35 +13,21 @@ public abstract  class RangeCharacter extends BaseCharacter {
         this.maxShots = maxShots;
     }
 
-    @Override
-    public String getInfo() {
-        return "Я боец дальнего боя!";
-    }
+
 
     @Override
     public void step(ArrayList<BaseCharacter> frends, ArrayList <BaseCharacter> teamEnemy ) {
         if (state.equals("Die") || this.shots <= 0) return;
         BaseCharacter enemy = teamEnemy.get(findeNearest(teamEnemy));
-        System.out.println("Выстрелов до атаки:  " + this.shots);
         float damage = (enemy.defence - attac > 0) ? minDamage: (enemy.defence - attac < 0)? maxDamage : (maxDamage + minDamage)/2;
         enemy.getDamage(damage);
-        System.out.println("--------------------------------------");
-        System.out.printf("Атакован ---> Имя: %s, %s, health: %d, скорость: %d, x: %d, y: %d \n" ,
-                enemy.getName(),
-                enemy.getInfo(),
-                enemy.getCurrentHealh(),
-                enemy.getSpeed(),
-                enemy.getXCoords(),
-                enemy.getYCoords());
-        System.out.println("--------------------------------------");
         for (BaseCharacter hero: frends) {
-            if(hero.getInfo().split(" ")[1].equals("фермер") && hero.state.equals("Stand")){
+            if(hero.getInfo().toString().split(":").equals("Фермер") && hero.state.equals("Stand")){
                 hero.state = "Busy";
                 return;
             }
         }
         this.shots--;
-        System.out.println("Выстрелов после атаки: " + this.shots);
     }
 
     public  void reload(){

@@ -17,14 +17,17 @@ public class Fermer extends  MeleCharacter{
     }
 
     @Override
-    public String getInfo() {
-        return "Я фермер";
+    public StringBuilder getInfo() {
+        StringBuilder builder = new StringBuilder();
+        return builder.append("Фермер: \t").append(Fermer.super.name)
+                .append("\t| ATK:\t").append(Fermer.super.attac)
+                .append("\t| HP:\t").append(Fermer.super.currentHealh)
+                .append("\t|").append("\t| (X.Y) : ").append(Fermer.super.coords.getxCords()).append(".").append(Fermer.super.coords.getxCords());
     }
 
     @Override
     public void step(ArrayList<BaseCharacter> b1, ArrayList <BaseCharacter> b2 ) {
-        if (this.state.equals("Die")) return;
-        this.state = "Stand";
+        if (!this.state.equals("Die")) this.state = "Stand";
     }
 
     public void serve(){

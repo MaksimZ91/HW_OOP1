@@ -26,11 +26,18 @@ public abstract class BaseCharacter implements GameInterface {
         this.state = "Stand";
     }
 
-
-
     @Override
-    public String getInfo() {
-            return "Я базовый персонаж!";
+    public String toString() {
+        return name +
+                " H:" + Math.round(currentHealh) +
+                " D:" + defence +
+                " A:" + attac +
+                " Dmg:" + Math.round(Math.abs((minDamage+maxDamage)/2)) + " " +
+                state;
+    }
+    @Override
+    public StringBuilder getInfo() {
+        return new StringBuilder("");
     }
 
     @Override
@@ -73,6 +80,8 @@ public abstract class BaseCharacter implements GameInterface {
 
 
     //----------------------------------------------------------------------------------------
+
+    public int[] getCoords() {return new int[]{coords.getxCords(), coords.getyCords()};}
 
 
     public String getName() {

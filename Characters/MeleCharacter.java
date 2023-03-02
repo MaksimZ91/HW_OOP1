@@ -11,13 +11,12 @@ public abstract class MeleCharacter extends BaseCharacter {
         this.stamina = stamina;
     }
 
-    @Override
-    public String getInfo() {
-        return "Я боец ближнего боя!";
-    }
+
 
     @Override
     public void step(ArrayList<BaseCharacter> b1, ArrayList <BaseCharacter> b2 ) {
-        super.step(b1, b2);
+
+
+
     }
 }

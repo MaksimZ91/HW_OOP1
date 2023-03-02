@@ -16,8 +16,12 @@ public class Rouge extends MeleCharacter{
     }
 
     @Override
-    public String getInfo() {
-        return "Я разбойник!";
+    public StringBuilder getInfo() {
+        StringBuilder builder = new StringBuilder();
+        return builder.append("Бандит: \t").append(Rouge.super.name)
+                .append("\t| ATK:\t").append(Rouge.super.attac)
+                .append("\t| HP:\t").append(Rouge.super.currentHealh)
+                .append(" \t|\t\t\t|").append("\t| (X.Y) : ").append(Rouge.super.coords.getxCords()).append(".").append(Rouge.super.coords.getyCords());
     }
 
     @Override

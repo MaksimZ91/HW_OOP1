@@ -11,10 +11,7 @@ public abstract class MagikCharacter extends BaseCharacter {
         this.magik = 1;
     }
 
-    @Override
-    public String getInfo() {
-        return "Я боец использующий магию";
-    }
+
 
     @Override
     public void step(ArrayList<BaseCharacter> frends, ArrayList <BaseCharacter> enemyTeam ) {
@@ -24,14 +21,6 @@ public abstract class MagikCharacter extends BaseCharacter {
             if(!hero.state.equals("Die") && hero.currentHealh < hero.maxHealh){
                 if (this.magik <= 0) return;               ;
                 hero.getHeal(maxDamage);
-                System.out.println("++++++++++++++++++++++++++++++++++++++++");
-                System.out.printf("Исцелен ---> Имя: %s, %s, health: %d, x: %d, y: %d \n",
-                        hero.getName(),
-                        hero.getInfo(),
-                        hero.getCurrentHealh(),
-                        hero.getXCoords(),
-                        hero.getYCoords());
-                System.out.println("++++++++++++++++++++++++++++++++++++++++");
                 this.magik --;
             }
         }

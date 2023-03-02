@@ -16,8 +16,13 @@ public class Crossbowman extends RangeCharacter{
     }
 
     @Override
-    public String getInfo() {
-        return "Я Арбалетчик!";
+    public StringBuilder getInfo() {
+        StringBuilder builder = new StringBuilder();
+        return builder.append("Арбалет: \t").append(Crossbowman.super.name)
+                .append("\t| ATK:\t").append(Crossbowman.super.attac)
+                .append("\t| HP:\t").append(Crossbowman.super.currentHealh)
+                .append(" \t| Arrows:").append(Crossbowman.super.shots)
+                .append("\t|").append("\t| (X.Y) : ").append(Crossbowman.super.coords.getxCords()).append(".").append(Crossbowman.super.coords.getyCords());
     }
 
     @Override

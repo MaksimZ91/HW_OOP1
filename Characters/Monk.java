@@ -15,8 +15,13 @@ public class Monk extends MagikCharacter{
     }
 
     @Override
-    public String getInfo() {
-        return "Я монах";
+    public StringBuilder getInfo() {
+        StringBuilder builder = new StringBuilder();
+        return builder.append("Монах:  \t").append(Monk.super.name)
+                .append("\t| ATK:\t").append(Monk.super.attac)
+                .append("\t| HP:\t").append(Monk.super.currentHealh)
+                .append(" \t| MP:\t").append(Monk.super.magik)
+                .append("\t|").append("\t| (X.Y) : ").append(Monk.super.coords.getxCords()).append(".").append(Monk.super.coords.getyCords());
     }
 
     @Override

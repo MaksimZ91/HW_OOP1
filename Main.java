@@ -1,30 +1,27 @@
 package org.example;
 import org.example.Characters.*;
-
-import javax.sound.midi.Soundbank;
 import java.util.*;
 
 
-public class Main {
+public class
+Main {
+    public static  ArrayList<BaseCharacter> team1 = new ArrayList<>();
+    public static ArrayList<BaseCharacter> team2 = new ArrayList<>();
+    public static ArrayList<BaseCharacter> heroList = new ArrayList<>();
 
     public static void main(String[] args) {
-        ArrayList<BaseCharacter> team1 = new ArrayList<>();
-        ArrayList<BaseCharacter> team2 = new ArrayList<>();
+
         Scanner user_input = new Scanner(System.in);
+        System.out.print("Press Enter to begin.");
+        user_input.nextLine();
 
         for (int i = 0; i < 10; i++) {
             ArrayList<String> list = getTeamHero();
             team1.add(getHero(list.get(0),1, i+1));
             team2.add(getHero(list.get(1), 10, i+1));
         }
-        ArrayList<BaseCharacter> heroList = new ArrayList<>(team1);
+        heroList.addAll(team1);
         heroList.addAll(team2);
-
-        System.out.println("Команда 1");
-        team1.forEach( hero -> System.out.printf("Команда 1,Имя: %s,  %s, health: %d , координаты X: %d, Y: %d \n" ,hero.getName(), hero.getInfo(), hero.getCurrentHealh(), hero.getXCoords(), hero.getYCoords()));
-        System.out.println("Команда 2");
-        team2.forEach( hero -> System.out.printf("Команда 2,Имя: %s,  %s, health: %d,  координаты X: %d, Y: %d  \n" ,hero.getName(), hero.getInfo(), hero.getCurrentHealh(), hero.getXCoords(), hero.getYCoords()));
-
 
         heroList.sort(new Comparator<BaseCharacter>() {
             @Override
@@ -33,15 +30,14 @@ public class Main {
             }
         });
 
-        System.out.println("Общий список отсортированный по скорости: ");
+
         while (true){
+            View.view();
             user_input.nextLine();
             for(BaseCharacter Character : heroList){
                 if (team1.contains(Character)){
-                    System.out.printf("Команда 1,Имя: %s,  %s, health: %d, x: %d, y: %d \n" ,Character.getName(), Character.getInfo(), Character.getCurrentHealh(), Character.getXCoords(), Character.getYCoords() );
                     Character.step(team1, team2);
                 }else{
-                    System.out.printf("Команда 2,Имя: %s,  %s, health: %d, x: %d, y: %d \n" ,Character.getName(), Character.getInfo(), Character.getCurrentHealh(), Character.getXCoords(), Character.getYCoords());
                     Character.step(team2, team1);
                 }
             }

@@ -1,8 +1,8 @@
 package org.example;
 
 public class Vector2D {
-    private int xCords;
-    private int yCords;
+    protected int xCords;
+    protected  int yCords;
 
     public Vector2D(int xcords, int ycords) {
         this.xCords = xcords;

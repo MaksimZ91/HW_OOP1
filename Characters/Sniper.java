@@ -17,12 +17,17 @@ public class Sniper extends  RangeCharacter{
     }
 
     public  void cloaking(){
-        System.out.println("Маскировка");
+        System.out.println("С");
     }
 
     @Override
-    public String getInfo() {
-        return "Я снайпер!";
+    public StringBuilder getInfo() {
+        StringBuilder builder = new StringBuilder();
+        return builder.append("Снайпер:\t").append(Sniper.super.name)
+                .append("\t| ATK:\t").append(Sniper.super.attac)
+                .append("\t| HP:\t").append(Sniper.super.currentHealh)
+                .append(" \t| Arrows:").append(Sniper.super.shots)
+                .append("\t|").append("\t| (X.Y) : ").append(Sniper.super.coords.getxCords()).append(".").append(Sniper.super.coords.getxCords());
     }
 
     @Override

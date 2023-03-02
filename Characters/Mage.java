@@ -19,8 +19,13 @@ public class Mage extends  MagikCharacter {
     }
 
     @Override
-    public String getInfo() {
-        return "Я маг!";
+    public StringBuilder getInfo() {
+        StringBuilder builder = new StringBuilder();
+        return builder.append("Колдун: \t").append(Mage.super.name)
+                .append("\t| ATK:\t").append(Mage.super.attac)
+                .append("\t| HP:\t").append(Mage.super.currentHealh)
+                .append(" \t| MP:\t").append(Mage.super.magik)
+                .append("\t|").append("\t| (X.Y) : ").append(Mage.super.coords.getxCords()).append(".").append(Mage.super.coords.getyCords());
     }
 
     @Override
