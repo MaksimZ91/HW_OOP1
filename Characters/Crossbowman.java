@@ -30,17 +30,6 @@ public class Crossbowman extends RangeCharacter{
         super.step(b1, b2);
     }
 
-    public  void collectBolts(){
-        System.out.println("Собирать болты");
-    }
-
-    public int getEnergy() {
-        return energy;
-    }
-
-    public void setEnergy(int energy) {
-        this.energy = energy;
-    }
 }
 
 

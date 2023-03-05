@@ -41,6 +41,7 @@ Main {
                     Character.step(team2, team1);
                 }
             }
+
         }
 
     }

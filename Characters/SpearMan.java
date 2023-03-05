@@ -31,24 +31,6 @@ public class SpearMan extends MeleCharacter {
         super.step(b1, b2);
     }
 
-    public void fear() {
-        System.out.println("Наводит ужас");
-    }
 
-    public void taunt() {
-        System.out.println("Провоцирует");
-    }
-
-    public void throwSpear() {
-        System.out.println("Метает копье");
-    }
-
-    public int getStrange() {
-        return strange;
-    }
-
-    public void setStrange(int strange) {
-        this.strange = strange;
-    }
 }
 

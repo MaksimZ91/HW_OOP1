@@ -20,7 +20,7 @@ public abstract  class RangeCharacter extends BaseCharacter {
         if (state.equals("Die") || this.shots <= 0) return;
         BaseCharacter enemy = teamEnemy.get(findeNearest(teamEnemy));
         float damage = (enemy.defence - attac > 0) ? minDamage: (enemy.defence - attac < 0)? maxDamage : (maxDamage + minDamage)/2;
-        enemy.getDamage(damage);
+      //  enemy.getDamage(damage);
         for (BaseCharacter hero: frends) {
             if(hero.getInfo().toString().split(":").equals("Фермер") && hero.state.equals("Stand")){
                 hero.state = "Busy";
@@ -30,31 +30,5 @@ public abstract  class RangeCharacter extends BaseCharacter {
         this.shots--;
     }
 
-    public  void reload(){
-        System.out.println("Перезарядка");
-    }
 
-    public int getAccuracy() {
-        return accuracy;
-    }
-
-    public void setAccuracy(int accuracy) {
-        this.accuracy = accuracy;
-    }
-
-    public int getShots() {
-        return shots;
-    }
-
-    public void setShots(int shots) {
-        this.shots = shots;
-    }
-
-    public int getMaxShots() {
-        return maxShots;
-    }
-
-    public void setMaxShots(int maxShots) {
-        this.maxShots = maxShots;
-    }
 }

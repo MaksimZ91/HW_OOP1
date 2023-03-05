@@ -29,24 +29,6 @@ public class Rouge extends MeleCharacter{
         super.step(b1, b2);
     }
 
-    public void steal (){
-        System.out.println("Крадемся");
-    }
 
-    public void trick (){
-        System.out.println("Обман / уловка");
-    }
-
-    public void theft (){
-        System.out.println("кража");
-    }
-
-    public void setLuck(int luck) {
-        this.luck = luck;
-    }
-
-    public int getLuck() {
-        return luck;
-    }
 
 }

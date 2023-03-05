@@ -30,21 +30,6 @@ public class Fermer extends  MeleCharacter{
         if (!this.state.equals("Die")) this.state = "Stand";
     }
 
-    public void serve(){
-        System.out.println("Прислуживаеть");
-    }
-
-    public void work(){
-        System.out.println("Работает/ добывает что-то");
-    }
-
-    public int getLoyalty() {
-        return deliv;
-    }
-
-    public void setLoyalty(int loyalty) {
-        this.deliv = loyalty;
-    }
 
 }
 

@@ -47,8 +47,8 @@ public abstract class BaseCharacter implements GameInterface {
         double min = 100;
         int index = 0;
         for (int i = 0; i < team.size(); i++){
-            if(min > this.coords.distanceCalculation(this.coords, team.get(i).coords) & !team.get(i).state.equals("Die")){
-                min = this.coords.distanceCalculation(this.coords, team.get(i).coords);
+            if(min > coords.distanceCalculation(coords, team.get(i).coords) & !team.get(i).state.equals("Die")){
+                min = coords.distanceCalculation(coords, team.get(i).coords);
                 index = i;
             }
         }
@@ -56,28 +56,20 @@ public abstract class BaseCharacter implements GameInterface {
     }
 
 
-
     public void getDamage (float damage){
         this.currentHealh -= damage;
         if (this.currentHealh > this.maxHealh) this.currentHealh = maxHealh;
-        if (this.currentHealh <= 0) this.state = "Die";
+        if (this.currentHealh <= 0) {
+            currentHealh = 0;
+            this.state = "Die";
+        }
+
     }
 
     public void getHeal (float heal){
         this.currentHealh -= heal;
         if (this.currentHealh > this.maxHealh) this.currentHealh = maxHealh;
     }
-    public void go (int speed){
-        System.out.println("Идем пешком");
-    }
-    public void run (int speed){
-        System.out.println("Бежим");
-    }
-    public  void useItem(Object invetary){
-        System.out.println("Использовать предмет из инветоря (зелья)");
-    }
-
-
 
     //----------------------------------------------------------------------------------------
 

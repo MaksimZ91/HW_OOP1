@@ -21,7 +21,7 @@ public class Mage extends  MagikCharacter {
     @Override
     public StringBuilder getInfo() {
         StringBuilder builder = new StringBuilder();
-        return builder.append("Колдун: \t").append(Mage.super.name)
+        return builder.append("Хиллер: \t").append(Mage.super.name)
                 .append("\t| ATK:\t").append(Mage.super.attac)
                 .append("\t| HP:\t").append(Mage.super.currentHealh)
                 .append(" \t| MP:\t").append(Mage.super.magik)
@@ -29,15 +29,9 @@ public class Mage extends  MagikCharacter {
     }
 
     @Override
-    public void step(ArrayList<BaseCharacter> frends, ArrayList <BaseCharacter> enemyTeam ) {
+    public void step(ArrayList<BaseCharacter> b1, ArrayList <BaseCharacter> b2  ) {
+        super.step(b1, b2);
 
-    }
-
-    public void curse (){
-        System.out.println("Наклыдывать проклятие");
-    }
-    public void blink (){
-        System.out.println("телепор");
     }
 
 

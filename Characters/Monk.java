@@ -29,19 +29,5 @@ public class Monk extends MagikCharacter{
         super.step(b1, b2);
     }
 
-    public void comfort(){
-        System.out.println("Успокаивать");
-    }
 
-    public void train(){
-        System.out.println("Тренировать");
-    }
-
-    public int getSpirit() {
-        return spirit;
-    }
-
-    public void setSpirit(int spirit) {
-        this.spirit = spirit;
-    }
 }
